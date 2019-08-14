@@ -5,5 +5,9 @@
   "main": "index.js",
   "repository": "https://github.com/HoJin-Chu/TypeScript-by-making-a-BlockChain.git",
   "author": "hojin-chu <cnghwls12@naver.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "prestart": "tsc"
+  }
 }
