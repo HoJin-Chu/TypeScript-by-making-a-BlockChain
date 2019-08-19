@@ -37,7 +37,7 @@ class Block {
   }
 }
 
-const genesisBlock:Block = new Block(0, "12345412312", "", "Hello", 123456)
+const genesisBlock:Block = new Block(0, "12345412312", "", "block Number 1", 123456)
 
 let blockchain: Block[] = [genesisBlock]
 
@@ -64,6 +64,7 @@ const createNewBlock = (data:string):Block => {
     data, 
     newTimestamp
   )
+  addBlock(newBlock)
   return newBlock
 }
 
@@ -94,6 +95,14 @@ const addBlock = (candidateBlock:Block):void => {
     blockchain.push(candidateBlock)
   }
 }
+
+createNewBlock("block Number 2")
+createNewBlock("block Number 3")
+createNewBlock("block Number 4")
+createNewBlock("block Number 5")
+createNewBlock("block Number 6")
+
+console.log(blockchain)
 
 export {}
 
