@@ -67,7 +67,13 @@ const createNewBlock = (data:string):Block => {
   return newBlock
 }
 
-const getHashforBlock = (aBlock:Block):string => Block.calculateBlockHash(aBlock.index, aBlock.previousHash, aBlock.timestamp, aBlock.data)
+const getHashforBlock = (aBlock:Block):string => 
+  Block.calculateBlockHash(
+    aBlock.index, 
+    aBlock.previousHash, 
+    aBlock.timestamp, 
+    aBlock.data
+  )
 
 const isBlockValid = (candidateBlock:Block, previousBlock:Block):boolean => {
   if(!Block.validateStructure(candidateBlock)) {
@@ -82,6 +88,14 @@ const isBlockValid = (candidateBlock:Block, previousBlock:Block):boolean => {
     return true
   }
 }
+
+const addBlock = (candidateBlock:Block):void => {
+  if(isBlockValid(candidateBlock, getLatestBlock())) {
+    blockchain.push(candidateBlock)
+  }
+}
+
+export {}
 
 
 // TypeScript Study
@@ -104,5 +118,3 @@ const isBlockValid = (candidateBlock:Block, previousBlock:Block):boolean => {
 
 // console.log(say(chu))
 
-
-export {}
